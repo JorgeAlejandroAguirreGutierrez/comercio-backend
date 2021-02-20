@@ -18,6 +18,7 @@ public class Constantes {
 	public static final String LOGCLASS = " de la clase: ";
 	public static String codigoPedido="FAC";
 	
+	public static final String TODOS="TODOS";
 	public static final String NO_CONFIRMADOS="NO CONFIRMADOS";
 	public static final String NO_PAGADOS="NO PAGADOS";
 	public static final String NO_ENVIADOS="NO ENVIADOS";

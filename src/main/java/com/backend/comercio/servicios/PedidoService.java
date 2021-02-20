@@ -161,7 +161,11 @@ public class PedidoService {
      */
     public List<Pedido> consultarPorEstadoPedido(String estadoPedido) {
     	logger.info(LOGMETHOD+Thread.currentThread().getStackTrace()[1].getMethodName()+LOGCLASS+this.getClass().getSimpleName());
-        if (estadoPedido.equals(Constantes.NO_CONFIRMADOS)) {
+    	if (estadoPedido.equals(Constantes.TODOS)) {
+        	List<Pedido> pedido= pedidoRepository.findAll();
+            return pedido;
+        }
+    	if (estadoPedido.equals(Constantes.NO_CONFIRMADOS)) {
         	List<Pedido> pedido= pedidoRepository.consultarPorNoConfirmados();
             return pedido;
         }

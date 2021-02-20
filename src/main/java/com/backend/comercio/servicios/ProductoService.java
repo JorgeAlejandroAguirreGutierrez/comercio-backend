@@ -129,4 +129,19 @@ public class ProductoService {
             }
         });
     }
+    
+    /**
+     * Consulta los productos por nombre
+     * @return List<Producto>
+     */
+    public Optional<Producto> disponible(Producto producto) {
+    	logger.info(LOGMETHOD+Thread.currentThread().getStackTrace()[1].getMethodName()+LOGCLASS+this.getClass().getSimpleName());
+    	if (producto.isDisponible()) {
+    		producto.setDisponible(false);
+    	} else {
+    		producto.setDisponible(true);
+    	}
+    	Optional<Producto>_producto=Optional.of(productoRepository.save(producto));
+    	return _producto;
+    }
 }

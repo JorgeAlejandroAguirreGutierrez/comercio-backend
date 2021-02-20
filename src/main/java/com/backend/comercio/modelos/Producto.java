@@ -53,6 +53,9 @@ public class Producto {
     @Column(name = "precio")
     private String precio;
 	
+    @Column(name = "descuento")
+    private long descuento;
+	
 	@NotNull
     @NotEmpty
     @Column(name = "garantia")

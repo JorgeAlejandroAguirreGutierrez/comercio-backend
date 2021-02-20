@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 public class Util {
 	public static String generarCodigo(String codigo, long conteo){
         String rellenoConteo = String.format("%06d" , conteo);
-        return codigo+"-" + rellenoConteo;
+        return codigo + rellenoConteo;
     }
     
     public static String vacio="";

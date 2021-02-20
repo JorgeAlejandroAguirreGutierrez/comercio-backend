@@ -90,10 +90,15 @@ public class ParametroDatos implements ApplicationRunner {
             parametros.add(new Parametro("CHOCOLATE", "COLOR", true));
             parametros.add(new Parametro("SALMON", "COLOR", true));
             
+            parametros.add(new Parametro("TODOS", "ESTADO_PEDIDO", true));
             parametros.add(new Parametro("NO CONFIRMADOS", "ESTADO_PEDIDO", true));
             parametros.add(new Parametro("NO PAGADOS", "ESTADO_PEDIDO", true));
             parametros.add(new Parametro("NO ENVIADOS", "ESTADO_PEDIDO", true));
             
+            parametros.add(new Parametro("DAVIVIENDA-AL NUMERO DE CUENTA: 018000456321", "MEDIO_PAGO", true));
+            parametros.add(new Parametro("BANCOLOMBIA-AL NUMERO DE CUENTA: 017000852146", "MEDIO_PAGO", true));
+            parametros.add(new Parametro("DAVIPLATA-AL NUMERO DE CELULAR: 3113395701", "MEDIO_PAGO", true));
+            parametros.add(new Parametro("EFECTY-AL NUMERO DE CEDULA: 1053847601", "MEDIO_PAGO", true));
             rep.saveAll(parametros);
         }
     }

@@ -93,4 +93,11 @@ public class ProductoController {
         List<Producto> producto=servicio.consultarPorTipo(tipo);
         return new ResponseEntity<>(producto, HttpStatus.OK);
     }
+    
+    @PutMapping(value = "/disponible", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> obtener(@RequestBody Producto producto) {
+    	logger.info(LOGMETHOD+Thread.currentThread().getStackTrace()[1].getMethodName()+LOGCLASS+this.getClass().getSimpleName());
+        Optional<Producto> _producto=servicio.disponible(producto);
+        return new ResponseEntity<>(_producto, HttpStatus.OK);
+    }
 }
