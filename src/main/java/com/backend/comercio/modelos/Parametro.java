@@ -16,6 +16,9 @@ public class Parametro {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
+    @Column(name = "titulo")
+    private String titulo;
+	
 	@NotNull
     @NotEmpty
     @Column(name = "valor")
@@ -33,10 +36,15 @@ public class Parametro {
 		
 	}
 	
-	public Parametro(String valor, String tipo, boolean activo) {
+	public Parametro(String titulo, String valor, String tipo, boolean activo) {
+		this.titulo=titulo;
 		this.valor=valor;
 		this.tipo=tipo;
 		this.activo=activo;
+	}
+	
+	public String getTitulo() {
+		return titulo;
 	}
 	
 	public String getValor() {
