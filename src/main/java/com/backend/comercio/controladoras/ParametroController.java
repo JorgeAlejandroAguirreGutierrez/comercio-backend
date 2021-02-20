@@ -73,9 +73,16 @@ public class ParametroController {
     }
     
     @GetMapping(value = "/consultarPorTipo/{tipo}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> obtener(@PathVariable("tipo") String tipo) {
+    public ResponseEntity<?> consultarPorTipo(@PathVariable("tipo") String tipo) {
     	logger.info(LOGMETHOD+Thread.currentThread().getStackTrace()[1].getMethodName()+LOGCLASS+this.getClass().getSimpleName());
         List<Parametro> parametros=servicio.consultarPorTipo(tipo);
+        return new ResponseEntity<>(parametros, HttpStatus.OK);
+    }
+    
+    @GetMapping(value = "/consultarPorTituloTipo/{titulo}/{tipo}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> consultarPorTituloTipo(@PathVariable("titulo") String titulo, @PathVariable("tipo") String tipo) {
+    	logger.info(LOGMETHOD+Thread.currentThread().getStackTrace()[1].getMethodName()+LOGCLASS+this.getClass().getSimpleName());
+        List<Parametro> parametros=servicio.consultarPorTituloTipo(titulo, tipo);
         return new ResponseEntity<>(parametros, HttpStatus.OK);
     }
 }

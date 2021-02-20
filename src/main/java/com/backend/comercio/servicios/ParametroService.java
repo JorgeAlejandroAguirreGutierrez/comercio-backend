@@ -94,4 +94,24 @@ public class ParametroService {
             }
         });
     }
+    
+    /**
+     * Consulta los parametros por titulo y tipo
+     * @return List<Parametro>
+     */
+    public List<Parametro> consultarPorTituloTipo(String titulo, String tipo) {
+    	logger.info(LOGMETHOD+Thread.currentThread().getStackTrace()[1].getMethodName()+LOGCLASS+this.getClass().getSimpleName());
+    	return  parametroRepository.findAll(new Specification<Parametro>() {
+            @Override
+            public Predicate toPredicate(Root<Parametro> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
+                List<Predicate> predicates = new ArrayList<>();
+                if (titulo != null && !titulo.equals("") && tipo!=null && !tipo.equals("")) {
+                	predicates.add(criteriaBuilder.and(criteriaBuilder.equal(root.get("titulo"), titulo)));
+                    predicates.add(criteriaBuilder.and(criteriaBuilder.equal(root.get("tipo"), tipo)));
+                    predicates.add(criteriaBuilder.and(criteriaBuilder.equal(root.get("activo"), true)));
+                }
+                return criteriaBuilder.and(predicates.toArray(new Predicate[predicates.size()]));
+            }
+        });
+    }
 }

@@ -31,18 +31,33 @@ public class ParametroDatos implements ApplicationRunner {
             parametros.add(new Parametro(null, "BOLSOS", "CATEGORIA", true));
             parametros.add(new Parametro(null, "TRAJES DEPORTIVOS", "CATEGORIA", true));
             
-            //ESTILOS
-            parametros.add(new Parametro(null, "TENIS", "ESTILO", true));
-            parametros.add(new Parametro(null, "ZAPATILLAS", "ESTILO", true));
-            parametros.add(new Parametro(null, "MOCASIN", "ESTILO", true));
-            parametros.add(new Parametro(null, "TENIS TACON", "ESTILO", true));
-            parametros.add(new Parametro(null, "TACON", "ESTILO", true));
-            parametros.add(new Parametro(null, "SANDALIAS", "ESTILO", true));
-            parametros.add(new Parametro(null, "CHANCLAS", "ESTILO", true));
-            parametros.add(new Parametro(null, "BOTAS", "ESTILO", true));
-            parametros.add(new Parametro(null, "BOTINES", "ESTILO", true));
-            parametros.add(new Parametro(null, "BALETAS", "ESTILO", true));
-            parametros.add(new Parametro(null, "TRACTOR", "ESTILO", true));
+            //ESTILOS ZAPATOS
+            parametros.add(new Parametro("ZAPATOS", "TENIS", "ESTILO", true));
+            parametros.add(new Parametro("ZAPATOS", "ZAPATILLAS", "ESTILO", true));
+            parametros.add(new Parametro("ZAPATOS", "MOCASIN", "ESTILO", true));
+            parametros.add(new Parametro("ZAPATOS", "TENIS TACON", "ESTILO", true));
+            parametros.add(new Parametro("ZAPATOS", "TACON", "ESTILO", true));
+            parametros.add(new Parametro("ZAPATOS", "SANDALIAS", "ESTILO", true));
+            parametros.add(new Parametro("ZAPATOS", "CHANCLAS", "ESTILO", true));
+            parametros.add(new Parametro("ZAPATOS", "BOTAS", "ESTILO", true));
+            parametros.add(new Parametro("ZAPATOS", "BOTINES", "ESTILO", true));
+            parametros.add(new Parametro("ZAPATOS", "BALETAS", "ESTILO", true));
+            parametros.add(new Parametro("ZAPATOS", "TRACTOR", "ESTILO", true));
+            
+            //ESTILOS BOLSOS
+            parametros.add(new Parametro("BOLSOS", "ELEGANTE", "ESTILO", true));
+            parametros.add(new Parametro("BOLSOS", "CASUAL", "ESTILO", true));
+            parametros.add(new Parametro("BOLSOS", "DEPORTIVO", "ESTILO", true));
+            parametros.add(new Parametro("BOLSOS", "MANOS LIBRES", "ESTILO", true));
+            parametros.add(new Parametro("BOLSOS", "MORRAL", "ESTILO", true));
+            parametros.add(new Parametro("BOLSOS", "CARTERA", "ESTILO", true));
+            parametros.add(new Parametro("BOLSOS", "MALETIN", "ESTILO", true));
+            parametros.add(new Parametro("BOLSOS", "BILLETERA", "ESTILO", true));
+            parametros.add(new Parametro("BOLSOS", "BANDOLERA", "ESTILO", true));
+            parametros.add(new Parametro("BOLSOS", "CANGURO", "ESTILO", true));
+            
+            //ESTILOS TRAJES DEPORTIVOS
+            parametros.add(new Parametro("TRAJES DEPORTIVOS", "DEPORTIVO", "ESTILO", true));
             
             //TALLAS
             parametros.add(new Parametro(null, "21", "TALLA", true));
