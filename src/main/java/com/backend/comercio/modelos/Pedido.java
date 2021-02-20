@@ -57,9 +57,6 @@ public class Pedido {
 	@Column(name = "pagado")
     private boolean pagado;
 	
-	@Column(name = "habilitar_medios_pago")
-    private boolean habilitarMediosPago;
-	
 	@ManyToOne
     @JoinColumn(name = "cliente_id", nullable = true)
     private Cliente cliente;
@@ -109,10 +106,6 @@ public class Pedido {
 		return enviado;
 	}
 	
-	public boolean isHabilitarMediosPago() {
-		return habilitarMediosPago;
-	}
-	
 	public void setQr(String qr) {
 		this.qr = qr;
 	}
@@ -143,10 +136,6 @@ public class Pedido {
 	
 	public void setConfirmar(boolean confirmar) {
 		this.confirmar = confirmar;
-	}
-	
-	public void setHabilitarMediosPago(boolean habilitarMediosPago) {
-		this.habilitarMediosPago = habilitarMediosPago;
 	}
 	
 	public void setCliente(Cliente cliente) {

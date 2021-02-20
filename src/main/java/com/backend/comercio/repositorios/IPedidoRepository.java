@@ -23,14 +23,18 @@ public interface IPedidoRepository extends JpaRepository<Pedido, Long>, JpaSpeci
     long conteo();
 	
 	@Query(value="select p from Pedido p"  
-			+" WHERE p.confirmar=false")
-	public List<Pedido> consultarPorNoConfirmados();
+			+" WHERE p.confirmar=false AND p.pagado=false AND p.enviado=false")
+	public List<Pedido> consultarAbiertos();
 	
 	@Query(value="select p from Pedido p"  
-			+" WHERE p.pagado=false")
-	public List<Pedido> consultarPorNoPagados();
+			+" WHERE p.confirmar=true AND p.pagado=false AND p.enviado=false")
+	public List<Pedido> consultarConfirmados();
 	
 	@Query(value="select p from Pedido p"  
-			+" WHERE p.enviado=false")
-	public List<Pedido> consultarPorNoEnviados();
+			+" WHERE p.confirmar=true AND p.pagado=true AND p.enviado=false")
+	public List<Pedido> consultarPagados();
+	
+	@Query(value="select p from Pedido p"  
+			+" WHERE p.confirmar=true AND p.pagado=true AND p.enviado=true")
+	public List<Pedido> consultarEnviados();
 }

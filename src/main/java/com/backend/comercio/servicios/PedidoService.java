@@ -162,20 +162,24 @@ public class PedidoService {
     public List<Pedido> consultarPorEstadoPedido(String estadoPedido) {
     	logger.info(LOGMETHOD+Thread.currentThread().getStackTrace()[1].getMethodName()+LOGCLASS+this.getClass().getSimpleName());
     	if (estadoPedido.equals(Constantes.TODOS)) {
-        	List<Pedido> pedido= pedidoRepository.findAll();
-            return pedido;
+        	List<Pedido> pedidos= pedidoRepository.findAll();
+            return pedidos;
         }
-    	if (estadoPedido.equals(Constantes.NO_CONFIRMADOS)) {
-        	List<Pedido> pedido= pedidoRepository.consultarPorNoConfirmados();
-            return pedido;
+    	if (estadoPedido.equals(Constantes.ABIERTOS)) {
+        	List<Pedido> pedidos= pedidoRepository.consultarAbiertos();
+            return pedidos;
         }
-        if (estadoPedido.equals(Constantes.NO_PAGADOS)) {
-        	List<Pedido> pedido= pedidoRepository.consultarPorNoPagados();
-            return pedido;
+    	if (estadoPedido.equals(Constantes.CONFIRMADOS)) {
+        	List<Pedido> pedidos= pedidoRepository.consultarConfirmados();
+            return pedidos;
         }
-        if (estadoPedido.equals(Constantes.NO_ENVIADOS)) {
-        	List<Pedido> pedido= pedidoRepository.consultarPorNoEnviados();
-            return pedido;
+        if (estadoPedido.equals(Constantes.PAGADOS)) {
+        	List<Pedido> pedidos= pedidoRepository.consultarPagados();
+            return pedidos;
+        }
+        if (estadoPedido.equals(Constantes.ENVIADOS)) {
+        	List<Pedido> pedidos= pedidoRepository.consultarEnviados();
+            return pedidos;
         }
     	return new ArrayList();
     }

@@ -59,30 +59,41 @@ public class ParametroDatos implements ApplicationRunner {
             //ESTILOS TRAJES DEPORTIVOS
             parametros.add(new Parametro("TRAJES DEPORTIVOS", "DEPORTIVO", "ESTILO", true));
             
-            //TALLAS
-            parametros.add(new Parametro(null, "21", "TALLA", true));
-            parametros.add(new Parametro(null, "22", "TALLA", true));
-            parametros.add(new Parametro(null, "23", "TALLA", true));
-            parametros.add(new Parametro(null, "24", "TALLA", true));
-            parametros.add(new Parametro(null, "25", "TALLA", true));
-            parametros.add(new Parametro(null, "26", "TALLA", true));
-            parametros.add(new Parametro(null, "27", "TALLA", true));
-            parametros.add(new Parametro(null, "28", "TALLA", true));
-            parametros.add(new Parametro(null, "29", "TALLA", true));
-            parametros.add(new Parametro(null, "30", "TALLA", true));
-            parametros.add(new Parametro(null, "31", "TALLA", true));
-            parametros.add(new Parametro(null, "32", "TALLA", true));
-            parametros.add(new Parametro(null, "33", "TALLA", true));
-            parametros.add(new Parametro(null, "34", "TALLA", true));
-            parametros.add(new Parametro(null, "35", "TALLA", true));
-            parametros.add(new Parametro(null, "36", "TALLA", true));
-            parametros.add(new Parametro(null, "37", "TALLA", true));
-            parametros.add(new Parametro(null, "38", "TALLA", true));
-            parametros.add(new Parametro(null, "39", "TALLA", true));
-            parametros.add(new Parametro(null, "40", "TALLA", true));
-            parametros.add(new Parametro(null, "41", "TALLA", true));
-            parametros.add(new Parametro(null, "42", "TALLA", true));
-            parametros.add(new Parametro(null, "43", "TALLA", true));
+            //TALLAS ZAPATOS
+            parametros.add(new Parametro("ZAPATOS", "21", "TALLA", true));
+            parametros.add(new Parametro("ZAPATOS", "22", "TALLA", true));
+            parametros.add(new Parametro("ZAPATOS", "23", "TALLA", true));
+            parametros.add(new Parametro("ZAPATOS", "24", "TALLA", true));
+            parametros.add(new Parametro("ZAPATOS", "25", "TALLA", true));
+            parametros.add(new Parametro("ZAPATOS", "26", "TALLA", true));
+            parametros.add(new Parametro("ZAPATOS", "27", "TALLA", true));
+            parametros.add(new Parametro("ZAPATOS", "28", "TALLA", true));
+            parametros.add(new Parametro("ZAPATOS", "29", "TALLA", true));
+            parametros.add(new Parametro("ZAPATOS", "30", "TALLA", true));
+            parametros.add(new Parametro("ZAPATOS", "31", "TALLA", true));
+            parametros.add(new Parametro("ZAPATOS", "32", "TALLA", true));
+            parametros.add(new Parametro("ZAPATOS", "33", "TALLA", true));
+            parametros.add(new Parametro("ZAPATOS", "34", "TALLA", true));
+            parametros.add(new Parametro("ZAPATOS", "35", "TALLA", true));
+            parametros.add(new Parametro("ZAPATOS", "36", "TALLA", true));
+            parametros.add(new Parametro("ZAPATOS", "37", "TALLA", true));
+            parametros.add(new Parametro("ZAPATOS", "38", "TALLA", true));
+            parametros.add(new Parametro("ZAPATOS", "39", "TALLA", true));
+            parametros.add(new Parametro("ZAPATOS", "40", "TALLA", true));
+            parametros.add(new Parametro("ZAPATOS", "41", "TALLA", true));
+            parametros.add(new Parametro("ZAPATOS", "42", "TALLA", true));
+            parametros.add(new Parametro("ZAPATOS", "43", "TALLA", true));
+            
+            //TALLAS BOLSOS
+            parametros.add(new Parametro("BOLSOS", "NA", "TALLA", true));
+            
+            //TALLAS TRAJES DEPORTIVOS
+            parametros.add(new Parametro("TRAJES DEPORTIVOS", "XS", "TALLA", true));
+            parametros.add(new Parametro("TRAJES DEPORTIVOS", "S", "TALLA", true));
+            parametros.add(new Parametro("TRAJES DEPORTIVOS", "M", "TALLA", true));
+            parametros.add(new Parametro("TRAJES DEPORTIVOS", "L", "TALLA", true));
+            parametros.add(new Parametro("TRAJES DEPORTIVOS", "XL", "TALLA", true));
+            parametros.add(new Parametro("TRAJES DEPORTIVOS", "UNICA", "TALLA", true));
             
             //COLORES
             parametros.add(new Parametro(null, "NEGRO", "COLOR", true));
@@ -106,9 +117,10 @@ public class ParametroDatos implements ApplicationRunner {
             parametros.add(new Parametro(null, "SALMON", "COLOR", true));
             
             parametros.add(new Parametro(null, "TODOS", "ESTADO_PEDIDO", true));
-            parametros.add(new Parametro(null, "NO CONFIRMADOS", "ESTADO_PEDIDO", true));
-            parametros.add(new Parametro(null, "NO PAGADOS", "ESTADO_PEDIDO", true));
-            parametros.add(new Parametro(null, "NO ENVIADOS", "ESTADO_PEDIDO", true));
+            parametros.add(new Parametro(null, "ABIERTOS", "ESTADO_PEDIDO", true));
+            parametros.add(new Parametro(null, "CONFIRMADOS", "ESTADO_PEDIDO", true));
+            parametros.add(new Parametro(null, "PAGADOS", "ESTADO_PEDIDO", true));
+            parametros.add(new Parametro(null, "ENVIADOS", "ESTADO_PEDIDO", true));
             
             parametros.add(new Parametro("DAVIVIENDA", "AL NUMERO DE CUENTA: 018000456321", "MEDIO_PAGO", true));
             parametros.add(new Parametro("BANCOLOMBIA", "AL NUMERO DE CUENTA: 017000852146", "MEDIO_PAGO", true));
