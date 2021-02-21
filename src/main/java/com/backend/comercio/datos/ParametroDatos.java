@@ -32,32 +32,32 @@ public class ParametroDatos implements ApplicationRunner {
             parametros.add(new Parametro(null, "TRAJES DEPORTIVOS", "CATEGORIA", true));
             
             //ESTILOS ZAPATOS
-            parametros.add(new Parametro("ZAPATOS", "TENIS", "ESTILO", true));
-            parametros.add(new Parametro("ZAPATOS", "ZAPATILLAS", "ESTILO", true));
-            parametros.add(new Parametro("ZAPATOS", "MOCASIN", "ESTILO", true));
-            parametros.add(new Parametro("ZAPATOS", "TENIS TACON", "ESTILO", true));
-            parametros.add(new Parametro("ZAPATOS", "TACON", "ESTILO", true));
-            parametros.add(new Parametro("ZAPATOS", "SANDALIAS", "ESTILO", true));
-            parametros.add(new Parametro("ZAPATOS", "CHANCLAS", "ESTILO", true));
-            parametros.add(new Parametro("ZAPATOS", "BOTAS", "ESTILO", true));
-            parametros.add(new Parametro("ZAPATOS", "BOTINES", "ESTILO", true));
-            parametros.add(new Parametro("ZAPATOS", "BALETAS", "ESTILO", true));
-            parametros.add(new Parametro("ZAPATOS", "TRACTOR", "ESTILO", true));
+            parametros.add(new Parametro("ZAPATOS", "TENIS", "SUBCATEGORIA", true));
+            parametros.add(new Parametro("ZAPATOS", "ZAPATILLAS", "SUBCATEGORIA", true));
+            parametros.add(new Parametro("ZAPATOS", "MOCASIN", "SUBCATEGORIA", true));
+            parametros.add(new Parametro("ZAPATOS", "TENIS TACON", "SUBCATEGORIA", true));
+            parametros.add(new Parametro("ZAPATOS", "TACON", "SUBCATEGORIA", true));
+            parametros.add(new Parametro("ZAPATOS", "SANDALIAS", "SUBCATEGORIA", true));
+            parametros.add(new Parametro("ZAPATOS", "CHANCLAS", "SUBCATEGORIA", true));
+            parametros.add(new Parametro("ZAPATOS", "BOTAS", "SUBCATEGORIA", true));
+            parametros.add(new Parametro("ZAPATOS", "BOTINES", "SUBCATEGORIA", true));
+            parametros.add(new Parametro("ZAPATOS", "BALETAS", "SUBCATEGORIA", true));
+            parametros.add(new Parametro("ZAPATOS", "TRACTOR", "SUBCATEGORIA", true));
             
             //ESTILOS BOLSOS
-            parametros.add(new Parametro("BOLSOS", "ELEGANTE", "ESTILO", true));
-            parametros.add(new Parametro("BOLSOS", "CASUAL", "ESTILO", true));
-            parametros.add(new Parametro("BOLSOS", "DEPORTIVO", "ESTILO", true));
-            parametros.add(new Parametro("BOLSOS", "MANOS LIBRES", "ESTILO", true));
-            parametros.add(new Parametro("BOLSOS", "MORRAL", "ESTILO", true));
-            parametros.add(new Parametro("BOLSOS", "CARTERA", "ESTILO", true));
-            parametros.add(new Parametro("BOLSOS", "MALETIN", "ESTILO", true));
-            parametros.add(new Parametro("BOLSOS", "BILLETERA", "ESTILO", true));
-            parametros.add(new Parametro("BOLSOS", "BANDOLERA", "ESTILO", true));
-            parametros.add(new Parametro("BOLSOS", "CANGURO", "ESTILO", true));
+            parametros.add(new Parametro("BOLSOS", "ELEGANTE", "SUBCATEGORIA", true));
+            parametros.add(new Parametro("BOLSOS", "CASUAL", "SUBCATEGORIA", true));
+            parametros.add(new Parametro("BOLSOS", "DEPORTIVO", "SUBCATEGORIA", true));
+            parametros.add(new Parametro("BOLSOS", "MANOS LIBRES", "SUBCATEGORIA", true));
+            parametros.add(new Parametro("BOLSOS", "MORRAL", "SUBCATEGORIA", true));
+            parametros.add(new Parametro("BOLSOS", "CARTERA", "SUBCATEGORIA", true));
+            parametros.add(new Parametro("BOLSOS", "MALETIN", "SUBCATEGORIA", true));
+            parametros.add(new Parametro("BOLSOS", "BILLETERA", "SUBCATEGORIA", true));
+            parametros.add(new Parametro("BOLSOS", "BANDOLERA", "SUBCATEGORIA", true));
+            parametros.add(new Parametro("BOLSOS", "CANGURO", "SUBCATEGORIA", true));
             
             //ESTILOS TRAJES DEPORTIVOS
-            parametros.add(new Parametro("TRAJES DEPORTIVOS", "DEPORTIVO", "ESTILO", true));
+            parametros.add(new Parametro("TRAJES DEPORTIVOS", "DEPORTIVO", "SUBCATEGORIA", true));
             
             //TALLAS ZAPATOS
             parametros.add(new Parametro("ZAPATOS", "21", "TALLA", true));

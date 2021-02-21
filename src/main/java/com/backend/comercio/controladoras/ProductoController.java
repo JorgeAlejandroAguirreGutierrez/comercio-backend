@@ -87,10 +87,17 @@ public class ProductoController {
         return new ResponseEntity<>(productos, HttpStatus.OK);
     }
     
-    @GetMapping(value = "/consultarPorTipo/{tipo}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> obtener(@PathVariable("tipo") String tipo) {
+    @GetMapping(value = "/consultarPorCategoria/{categoria}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> obtener(@PathVariable("categoria") String categoria) {
     	logger.info(LOGMETHOD+Thread.currentThread().getStackTrace()[1].getMethodName()+LOGCLASS+this.getClass().getSimpleName());
-        List<Producto> producto=servicio.consultarPorTipo(tipo);
+        List<Producto> producto=servicio.consultarPorCategoria(categoria);
+        return new ResponseEntity<>(producto, HttpStatus.OK);
+    }
+    
+    @GetMapping(value = "/consultarPorMarcaCategoriaSubcategoria/{marca}/{categoria}/{subcategoria}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> obtener(@PathVariable("marca") String marca, @PathVariable("categoria") String categoria, @PathVariable("subcategoria") String subcategoria) {
+    	logger.info(LOGMETHOD+Thread.currentThread().getStackTrace()[1].getMethodName()+LOGCLASS+this.getClass().getSimpleName());
+        List<Producto> producto=servicio.consultarPorMarcaCategoriaSubcategoria(marca, categoria, subcategoria);
         return new ResponseEntity<>(producto, HttpStatus.OK);
     }
     

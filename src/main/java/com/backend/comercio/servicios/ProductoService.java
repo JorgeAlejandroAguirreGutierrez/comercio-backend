@@ -117,7 +117,7 @@ public class ProductoService {
      * Consulta los productos por nombre
      * @return List<Producto>
      */
-    public List<Producto> consultarPorTipo(String categoria) {
+    public List<Producto> consultarPorCategoria(String categoria) {
     	logger.info(LOGMETHOD+Thread.currentThread().getStackTrace()[1].getMethodName()+LOGCLASS+this.getClass().getSimpleName());
     	return  productoRepository.findAll(new Specification<Producto>() {
             @Override
@@ -127,6 +127,31 @@ public class ProductoService {
                     predicates.add(criteriaBuilder.and(criteriaBuilder.equal(root.get("categoria"), categoria)));
                     predicates.add(criteriaBuilder.and(criteriaBuilder.equal(root.get("disponible"), true)));
                 }
+                return criteriaBuilder.and(predicates.toArray(new Predicate[predicates.size()]));
+            }
+        });
+    }
+    
+    /**
+     * Consulta los productos por marca, categoria y subcategoria
+     * @return List<Producto>
+     */
+    public List<Producto> consultarPorMarcaCategoriaSubcategoria(String marca, String categoria, String subcategoria) {
+    	logger.info(LOGMETHOD+Thread.currentThread().getStackTrace()[1].getMethodName()+LOGCLASS+this.getClass().getSimpleName());
+    	return  productoRepository.findAll(new Specification<Producto>() {
+            @Override
+            public Predicate toPredicate(Root<Producto> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
+                List<Predicate> predicates = new ArrayList<>();
+                if (marca!=null && !marca.equals("")) {
+                    predicates.add(criteriaBuilder.and(criteriaBuilder.equal(root.get("marca"), marca)));
+                }
+                if (categoria!=null && !categoria.equals("")) {
+                    predicates.add(criteriaBuilder.and(criteriaBuilder.equal(root.get("categoria"), categoria)));  
+                }
+                if (subcategoria!=null && !subcategoria.equals("")) {
+                    predicates.add(criteriaBuilder.and(criteriaBuilder.equal(root.get("subcategoria"), subcategoria)));
+                }
+                predicates.add(criteriaBuilder.and(criteriaBuilder.equal(root.get("disponible"), true)));
                 return criteriaBuilder.and(predicates.toArray(new Predicate[predicates.size()]));
             }
         });

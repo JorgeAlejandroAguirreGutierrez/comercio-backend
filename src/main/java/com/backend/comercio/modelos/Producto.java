@@ -40,13 +40,13 @@ public class Producto {
 	
 	@NotNull
     @NotEmpty
-    @Column(name = "estilo")
-    private String estilo;
+    @Column(name = "categoria")
+    private String categoria;
 	
 	@NotNull
     @NotEmpty
-    @Column(name = "categoria")
-    private String categoria;
+    @Column(name = "subcategoria")
+    private String subcategoria;
 	
 	@NotNull
     @NotEmpty
@@ -92,14 +92,15 @@ public class Producto {
     public String getMarca() {
 		return marca;
 	}
-    public String getEstilo() {
-		return estilo;
-	}
     
     public String getCategoria() {
 		return categoria;
 	}
     
+    public String getSubcategoria() {
+		return subcategoria;
+	}
+     
     public String getPrecio() {
 		return precio;
 	}
