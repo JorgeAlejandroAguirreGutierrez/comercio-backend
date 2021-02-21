@@ -103,6 +103,11 @@ public class Producto {
     public String getPrecio() {
 		return precio;
 	}
+    
+    public long getDescuento() {
+		return descuento;
+	}
+    
     public String getGarantia() {
 		return garantia;
 	}

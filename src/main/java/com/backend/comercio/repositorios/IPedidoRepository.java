@@ -37,4 +37,20 @@ public interface IPedidoRepository extends JpaRepository<Pedido, Long>, JpaSpeci
 	@Query(value="select p from Pedido p"  
 			+" WHERE p.confirmar=true AND p.pagado=true AND p.enviado=true")
 	public List<Pedido> consultarEnviados();
+	
+	@Query(value="select p from Pedido p JOIN p.cliente c"  
+			+" WHERE p.confirmar=false AND p.pagado=false AND p.enviado=false AND c.celular=:celular")
+	public List<Pedido> consultarCelularYAbiertos(String celular);
+	
+	@Query(value="select p from Pedido p"  
+			+" WHERE p.confirmar=true AND p.pagado=false AND p.enviado=false AND c.celular=:celular")
+	public List<Pedido> consultarCelularYConfirmados(String celular);
+	
+	@Query(value="select p from Pedido p"  
+			+" WHERE p.confirmar=true AND p.pagado=true AND p.enviado=false AND c.celular=:celular")
+	public List<Pedido> consultarCelularYPagados(String celular);
+	
+	@Query(value="select p from Pedido p"  
+			+" WHERE p.confirmar=true AND p.pagado=true AND p.enviado=true AND c.celular=:celular")
+	public List<Pedido> consultarCelularYEnviados(String celular);
 }

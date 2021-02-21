@@ -106,6 +106,7 @@ public class ProductoService {
                 List<Predicate> predicates = new ArrayList<>();
                 if (producto.getMarca()!=null) {
                     predicates.add(criteriaBuilder.and(criteriaBuilder.like(root.get("marca"), "%"+producto.getMarca()+"%")));
+                    predicates.add(criteriaBuilder.and(criteriaBuilder.equal(root.get("disponible"), true)));
                 }
                 return criteriaBuilder.and(predicates.toArray(new Predicate[predicates.size()]));
             }
@@ -124,6 +125,7 @@ public class ProductoService {
                 List<Predicate> predicates = new ArrayList<>();
                 if (categoria!=null && !categoria.equals("")) {
                     predicates.add(criteriaBuilder.and(criteriaBuilder.equal(root.get("categoria"), categoria)));
+                    predicates.add(criteriaBuilder.and(criteriaBuilder.equal(root.get("disponible"), true)));
                 }
                 return criteriaBuilder.and(predicates.toArray(new Predicate[predicates.size()]));
             }

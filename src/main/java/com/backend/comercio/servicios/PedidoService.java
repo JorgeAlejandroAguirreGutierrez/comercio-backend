@@ -159,25 +159,41 @@ public class PedidoService {
      * @param String estadoPedido
      * @return List<Pedido>
      */
-    public List<Pedido> consultarPorEstadoPedido(String estadoPedido) {
+    public List<Pedido> consultarPorCelularEstadoPedido(String celular, String estadoPedido) {
     	logger.info(LOGMETHOD+Thread.currentThread().getStackTrace()[1].getMethodName()+LOGCLASS+this.getClass().getSimpleName());
     	if (estadoPedido.equals(Constantes.TODOS)) {
         	List<Pedido> pedidos= pedidoRepository.findAll();
             return pedidos;
         }
     	if (estadoPedido.equals(Constantes.ABIERTOS)) {
+    		if (celular != null && !celular.equals("") ) {
+    			List<Pedido> pedidos= pedidoRepository.consultarCelularYAbiertos(celular);
+                return pedidos;
+    		}
         	List<Pedido> pedidos= pedidoRepository.consultarAbiertos();
             return pedidos;
         }
     	if (estadoPedido.equals(Constantes.CONFIRMADOS)) {
+    		if (celular != null && !celular.equals("") ) {
+    			List<Pedido> pedidos= pedidoRepository.consultarCelularYConfirmados(celular);
+                return pedidos;
+    		}
         	List<Pedido> pedidos= pedidoRepository.consultarConfirmados();
             return pedidos;
         }
         if (estadoPedido.equals(Constantes.PAGADOS)) {
+        	if (celular != null && !celular.equals("") ) {
+    			List<Pedido> pedidos= pedidoRepository.consultarCelularYPagados(celular);
+                return pedidos;
+    		}
         	List<Pedido> pedidos= pedidoRepository.consultarPagados();
             return pedidos;
         }
         if (estadoPedido.equals(Constantes.ENVIADOS)) {
+        	if (celular != null && !celular.equals("") ) {
+    			List<Pedido> pedidos= pedidoRepository.consultarCelularYEnviados(celular);
+                return pedidos;
+    		}
         	List<Pedido> pedidos= pedidoRepository.consultarEnviados();
             return pedidos;
         }

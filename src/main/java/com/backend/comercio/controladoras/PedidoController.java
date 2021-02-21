@@ -102,10 +102,10 @@ public class PedidoController {
         return new ResponseEntity<>(pedido, HttpStatus.OK);
     }
     
-    @GetMapping(value = "/consultarporestadopedido/{estadopedido}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> consultarPorEstadoPedido(@PathVariable("estadopedido") String estadoPedido) {
+    @GetMapping(value = "/consultarporcelularestadopedido/{celular}/{estadopedido}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> consultarPorEstadoPedido(@PathVariable("celular") String celular, @PathVariable("estadopedido") String estadoPedido) {
     	logger.info(LOGMETHOD+Thread.currentThread().getStackTrace()[1].getMethodName()+LOGCLASS+this.getClass().getSimpleName());
-        List<Pedido> pedidos=servicio.consultarPorEstadoPedido(estadoPedido);
+        List<Pedido> pedidos=servicio.consultarPorCelularEstadoPedido(celular, estadoPedido);
         return new ResponseEntity<>(pedidos, HttpStatus.OK);
     }
 }
