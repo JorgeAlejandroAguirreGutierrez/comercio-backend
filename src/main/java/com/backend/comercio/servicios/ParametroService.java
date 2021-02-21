@@ -83,7 +83,7 @@ public class ParametroService {
     public List<Parametro> consultarPorTipo(String tipo) {
     	logger.info(LOGMETHOD+Thread.currentThread().getStackTrace()[1].getMethodName()+LOGCLASS+this.getClass().getSimpleName());
     	return  parametroRepository.findAll(new Specification<Parametro>() {
-            @Override
+			@Override
             public Predicate toPredicate(Root<Parametro> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
                 List<Predicate> predicates = new ArrayList<>();
                 if (tipo!=null && !tipo.equals("")) {

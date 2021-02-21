@@ -12,6 +12,7 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name = "parametro")
 public class Parametro {
+	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
