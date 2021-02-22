@@ -26,6 +26,8 @@ import static com.backend.comercio.Constantes.LOGCLASS;
 import static com.backend.comercio.Constantes.LOGMETHOD;
 import static com.backend.comercio.Constantes.PRODUCTOCONTROLLER;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.List;
 import java.util.Optional;
 
@@ -107,5 +109,20 @@ public class ProductoController {
     	logger.info(LOGMETHOD+Thread.currentThread().getStackTrace()[1].getMethodName()+LOGCLASS+this.getClass().getSimpleName());
         Optional<Producto> _producto=servicio.disponible(producto);
         return new ResponseEntity<>(_producto, HttpStatus.OK);
+    }
+    
+    @GetMapping(value = "/rate", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> obtener(@RequestParam("rate") BigDecimal rate, @RequestParam("amountcop") BigDecimal amountCop, @RequestParam("amountria") BigDecimal amountRia) {
+    	logger.info(LOGMETHOD+Thread.currentThread().getStackTrace()[1].getMethodName()+LOGCLASS+this.getClass().getSimpleName());
+    	BigDecimal rateRemittances = rate.setScale(2, RoundingMode.HALF_UP);
+    	BigDecimal aggregatorAmountCalculated = amountCop.divide(rateRemittances, 2, RoundingMode.HALF_UP);
+    	String respuesta="";
+        if (aggregatorAmountCalculated.compareTo(amountRia) != 0) {
+        	respuesta="TASA DIFERENTE: "+aggregatorAmountCalculated+" amountria: "+amountRia;
+        } else {
+        	respuesta="TASA IGUAL TODO BIEN";
+        }
+    	
+        return new ResponseEntity<>(respuesta, HttpStatus.OK);
     }
 }

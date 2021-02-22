@@ -3,8 +3,9 @@ package com.backend.comercio.servicios;
 import static com.backend.comercio.Constantes.LOGCLASS;
 import static com.backend.comercio.Constantes.LOGMETHOD;
 
-import java.util.ArrayList;
+
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Optional;
 
 import javax.persistence.criteria.CriteriaBuilder;
@@ -19,11 +20,11 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.backend.comercio.Constantes;
 import com.backend.comercio.exception.ModeloNoExistenteException;
 import com.backend.comercio.modelos.Imagen;
 import com.backend.comercio.modelos.Producto;
 import com.backend.comercio.repositorios.IProductoRepository;
-import com.backend.comercio.Constantes;
 
 @Service
 public class ProductoService {
