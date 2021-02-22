@@ -27,15 +27,15 @@ public interface IPedidoRepository extends JpaRepository<Pedido, Long>, JpaSpeci
 	public List<Pedido> consultarAbiertos();
 	
 	@Query(value="select p from Pedido p"  
-			+" WHERE p.confirmar=true AND p.pagado=false AND p.enviado=false")
+			+" WHERE p.confirmar=true")
 	public List<Pedido> consultarConfirmados();
 	
 	@Query(value="select p from Pedido p"  
-			+" WHERE p.confirmar=true AND p.pagado=true AND p.enviado=false")
+			+" WHERE AND p.pagado=true")
 	public List<Pedido> consultarPagados();
 	
 	@Query(value="select p from Pedido p"  
-			+" WHERE p.confirmar=true AND p.pagado=true AND p.enviado=true")
+			+" WHERE p.enviado=true")
 	public List<Pedido> consultarEnviados();
 	
 	@Query(value="select p from Pedido p JOIN p.cliente c"  
@@ -43,14 +43,14 @@ public interface IPedidoRepository extends JpaRepository<Pedido, Long>, JpaSpeci
 	public List<Pedido> consultarCelularYAbiertos(String celular);
 	
 	@Query(value="select p from Pedido p JOIN p.cliente c"  
-			+" WHERE p.confirmar=true AND p.pagado=false AND p.enviado=false AND c.celular=:celular")
+			+" WHERE p.confirmar=true AND c.celular=:celular")
 	public List<Pedido> consultarCelularYConfirmados(String celular);
 	
 	@Query(value="select p from Pedido p JOIN p.cliente c"  
-			+" WHERE p.confirmar=true AND p.pagado=true AND p.enviado=false AND c.celular=:celular")
+			+" WHERE p.pagado=true AND c.celular=:celular")
 	public List<Pedido> consultarCelularYPagados(String celular);
 	
 	@Query(value="select p from Pedido p JOIN p.cliente c"  
-			+" WHERE p.confirmar=true AND p.pagado=true AND p.enviado=true AND c.celular=:celular")
+			+" WHERE p.enviado=true AND c.celular=:celular")
 	public List<Pedido> consultarCelularYEnviados(String celular);
 }

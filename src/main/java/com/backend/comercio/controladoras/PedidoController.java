@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -101,8 +102,8 @@ public class PedidoController {
         return new ResponseEntity<>(pedido, HttpStatus.OK);
     }
     
-    @GetMapping(value = "/consultarporcelularestadopedido/{celular}/{estadopedido}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> consultarPorEstadoPedido(@PathVariable("celular") String celular, @PathVariable("estadopedido") String estadoPedido) {
+    @GetMapping(value = "/consultarporcelularestadopedido", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> consultarPorEstadoPedido(@RequestParam("celular") String celular, @RequestParam("estadopedido") String estadoPedido) {
     	logger.info(LOGMETHOD+Thread.currentThread().getStackTrace()[1].getMethodName()+LOGCLASS+this.getClass().getSimpleName());
         List<Pedido> pedidos=servicio.consultarPorCelularEstadoPedido(celular, estadoPedido);
         return new ResponseEntity<>(pedidos, HttpStatus.OK);
