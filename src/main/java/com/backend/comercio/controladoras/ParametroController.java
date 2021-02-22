@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.backend.comercio.modelos.Parametro;
@@ -72,15 +73,15 @@ public class ParametroController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
     
-    @GetMapping(value = "/consultarPorTipo/{tipo}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> consultarPorTipo(@PathVariable("tipo") String tipo) {
+    @GetMapping(value = "/consultarPorTipo", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> consultarPorTipo(@RequestParam("tipo") String tipo) {
     	logger.info(LOGMETHOD+Thread.currentThread().getStackTrace()[1].getMethodName()+LOGCLASS+this.getClass().getSimpleName());
         List<Parametro> parametros=servicio.consultarPorTipo(tipo);
         return new ResponseEntity<>(parametros, HttpStatus.OK);
     }
     
-    @GetMapping(value = "/consultarPorTituloTipo/{titulo}/{tipo}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> consultarPorTituloTipo(@PathVariable("titulo") String titulo, @PathVariable("tipo") String tipo) {
+    @GetMapping(value = "/consultarPorTituloTipo", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> consultarPorTituloTipo(@RequestParam("titulo") String titulo, @RequestParam("tipo") String tipo) {
     	logger.info(LOGMETHOD+Thread.currentThread().getStackTrace()[1].getMethodName()+LOGCLASS+this.getClass().getSimpleName());
         List<Parametro> parametros=servicio.consultarPorTituloTipo(titulo, tipo);
         return new ResponseEntity<>(parametros, HttpStatus.OK);

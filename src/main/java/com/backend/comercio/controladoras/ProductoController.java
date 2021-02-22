@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -87,15 +88,15 @@ public class ProductoController {
         return new ResponseEntity<>(productos, HttpStatus.OK);
     }
     
-    @GetMapping(value = "/consultarPorCategoria/{categoria}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> obtener(@PathVariable("categoria") String categoria) {
+    @GetMapping(value = "/consultarPorCategoria", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> obtener(@RequestParam("categoria") String categoria) {
     	logger.info(LOGMETHOD+Thread.currentThread().getStackTrace()[1].getMethodName()+LOGCLASS+this.getClass().getSimpleName());
         List<Producto> producto=servicio.consultarPorCategoria(categoria);
         return new ResponseEntity<>(producto, HttpStatus.OK);
     }
     
-    @GetMapping(value = "/consultarPorMarcaCategoriaSubcategoria/{marca}/{categoria}/{subcategoria}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> obtener(@PathVariable("marca") String marca, @PathVariable("categoria") String categoria, @PathVariable("subcategoria") String subcategoria) {
+    @GetMapping(value = "/consultarPorMarcaCategoriaSubcategoria", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> obtener(@RequestParam("marca") String marca, @RequestParam("categoria") String categoria, @RequestParam("subcategoria") String subcategoria) {
     	logger.info(LOGMETHOD+Thread.currentThread().getStackTrace()[1].getMethodName()+LOGCLASS+this.getClass().getSimpleName());
         List<Producto> producto=servicio.consultarPorMarcaCategoriaSubcategoria(marca, categoria, subcategoria);
         return new ResponseEntity<>(producto, HttpStatus.OK);

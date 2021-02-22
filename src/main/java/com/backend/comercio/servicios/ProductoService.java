@@ -143,7 +143,7 @@ public class ProductoService {
             public Predicate toPredicate(Root<Producto> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
                 List<Predicate> predicates = new ArrayList<>();
                 if (marca!=null && !marca.equals("")) {
-                    predicates.add(criteriaBuilder.and(criteriaBuilder.equal(root.get("marca"), marca)));
+                    predicates.add(criteriaBuilder.and(criteriaBuilder.like(root.get("marca"), "%"+marca+"%")));
                 }
                 if (categoria!=null && !categoria.equals("")) {
                     predicates.add(criteriaBuilder.and(criteriaBuilder.equal(root.get("categoria"), categoria)));  
