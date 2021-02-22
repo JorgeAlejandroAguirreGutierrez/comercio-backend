@@ -89,7 +89,9 @@ public class ParametroService {
                 if (tipo!=null && !tipo.equals("")) {
                     predicates.add(criteriaBuilder.and(criteriaBuilder.equal(root.get("tipo"), tipo)));
                     predicates.add(criteriaBuilder.and(criteriaBuilder.equal(root.get("activo"), true)));
+                    return criteriaBuilder.and(predicates.toArray(new Predicate[predicates.size()]));
                 }
+                predicates.add(criteriaBuilder.and(criteriaBuilder.equal(root.get("id"), 0)));
                 return criteriaBuilder.and(predicates.toArray(new Predicate[predicates.size()]));
             }
         });
@@ -109,7 +111,9 @@ public class ParametroService {
                 	predicates.add(criteriaBuilder.and(criteriaBuilder.equal(root.get("titulo"), titulo)));
                     predicates.add(criteriaBuilder.and(criteriaBuilder.equal(root.get("tipo"), tipo)));
                     predicates.add(criteriaBuilder.and(criteriaBuilder.equal(root.get("activo"), true)));
+                    return criteriaBuilder.and(predicates.toArray(new Predicate[predicates.size()]));
                 }
+                predicates.add(criteriaBuilder.and(criteriaBuilder.equal(root.get("id"), 0)));
                 return criteriaBuilder.and(predicates.toArray(new Predicate[predicates.size()]));
             }
         });

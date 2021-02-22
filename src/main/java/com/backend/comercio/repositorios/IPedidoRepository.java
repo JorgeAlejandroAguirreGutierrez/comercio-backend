@@ -31,7 +31,7 @@ public interface IPedidoRepository extends JpaRepository<Pedido, Long>, JpaSpeci
 	public List<Pedido> consultarConfirmados();
 	
 	@Query(value="select p from Pedido p"  
-			+" WHERE AND p.pagado=true")
+			+" WHERE p.pagado=true")
 	public List<Pedido> consultarPagados();
 	
 	@Query(value="select p from Pedido p"  
