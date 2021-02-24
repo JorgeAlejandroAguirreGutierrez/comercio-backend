@@ -130,6 +130,10 @@ public class Pedido {
 		this.fecha = fecha;
 	}
 	
+	public void setTotal(double total) {
+		this.total = total;
+	}
+	
 	public void setGenerar(boolean generar) {
 		this.generar = generar;
 	}

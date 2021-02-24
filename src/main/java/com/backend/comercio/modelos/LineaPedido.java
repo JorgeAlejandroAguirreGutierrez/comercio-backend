@@ -35,6 +35,10 @@ public class LineaPedido {
     public double getTotal() {
 		return total;
 	}
+    
+    public void setTotal(double total) {
+		this.total = total;
+	}
 	
 	public Talla getTalla() {
 		return talla;
