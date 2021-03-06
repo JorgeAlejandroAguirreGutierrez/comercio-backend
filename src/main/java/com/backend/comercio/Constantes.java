@@ -24,11 +24,15 @@ public class Constantes {
 	public static final String PAGADOS="PAGADOS";
 	public static final String ENVIADOS="ENVIADOS";
 	
-	public static String guardarArchivo(MultipartFile archivo, long consecutivo ) throws Exception 
+	public static final String RUTAIMAGENESPRODUCTOS="src/main/img";
+	public static final String RUTAIMAGENESQR="src/main/imgqr";
+	public static final String RUTAIMAGENESFRONT="src/main/imgfront";
+	
+	public static String guardarArchivo(MultipartFile archivo, long consecutivo, String carpeta ) throws Exception 
     {
 		try {
 			String ruta=consecutivo+archivo.getOriginalFilename();
-	        File archivo_convertir = new File("src/main/upload", ruta );
+	        File archivo_convertir = new File(carpeta, ruta );
 	        FileOutputStream archivo_salida = new FileOutputStream( archivo_convertir );
 	        archivo_salida.write( archivo.getBytes() );
 	        archivo_salida.close();

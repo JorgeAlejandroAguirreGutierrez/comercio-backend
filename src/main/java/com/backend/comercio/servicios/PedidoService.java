@@ -100,7 +100,7 @@ public class PedidoService {
      */
     public Optional<Pedido> actualizarQr(MultipartFile archivo, long id) throws Exception {
     	Optional<Pedido>pedido=pedidoRepository.findById(id);
-    	String ruta=Constantes.guardarArchivo(archivo, id);
+    	String ruta=Constantes.guardarArchivo(archivo, id, Constantes.RUTAIMAGENESQR);
     	if(pedido.isPresent()) {
     		Pedido getPedido=pedido.get();
     		getPedido.setQr(ruta);

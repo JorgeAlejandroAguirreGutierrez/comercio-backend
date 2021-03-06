@@ -83,7 +83,7 @@ public class ProductoService {
     
     public boolean imagen(MultipartFile archivo, long id) throws Exception {
     	Optional<Producto>producto=productoRepository.findById(id);
-    	String ruta=Constantes.guardarArchivo(archivo, id);
+    	String ruta=Constantes.guardarArchivo(archivo, id, Constantes.RUTAIMAGENESPRODUCTOS);
     	if(producto.isPresent()) {
     		Producto getProducto=producto.get();
     		Imagen imagen= new Imagen();
