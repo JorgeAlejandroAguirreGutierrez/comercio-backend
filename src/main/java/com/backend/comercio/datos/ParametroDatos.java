@@ -126,6 +126,10 @@ public class ParametroDatos implements ApplicationRunner {
             parametros.add(new Parametro("BANCOLOMBIA", "AL NUMERO DE CUENTA: 017000852146", "MEDIO_PAGO", true));
             parametros.add(new Parametro("DAVIPLATA", "AL NUMERO DE CELULAR: 3113395701", "MEDIO_PAGO", true));
             parametros.add(new Parametro("EFECTY", "AL NUMERO DE CEDULA: 1053847607", "MEDIO_PAGO", true));
+            
+            parametros.add(new Parametro(null, "slider1.jpg", "SLIDER", true));
+            parametros.add(new Parametro(null, "slider2.jpeg", "SLIDER", true));
+            parametros.add(new Parametro(null, "slider3.jpg", "SLIDER", true));
             rep.saveAll(parametros);
         }
     }

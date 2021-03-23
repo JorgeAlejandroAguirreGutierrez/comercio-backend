@@ -3,20 +3,14 @@ package com.backend.comercio.servicios;
 import static com.backend.comercio.Constantes.LOGCLASS;
 import static com.backend.comercio.Constantes.LOGMETHOD;
 
-import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ByteArrayResource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -100,7 +94,7 @@ public class PedidoService {
      */
     public Optional<Pedido> actualizarQr(MultipartFile archivo, long id) throws Exception {
     	Optional<Pedido>pedido=pedidoRepository.findById(id);
-    	String ruta=Constantes.guardarArchivo(archivo, id, Constantes.RUTAIMAGENESQR);
+    	String ruta=Util.guardarArchivo(archivo, id, Constantes.RUTAIMAGENESQR);
     	if(pedido.isPresent()) {
     		Pedido getPedido=pedido.get();
     		getPedido.setQr(ruta);

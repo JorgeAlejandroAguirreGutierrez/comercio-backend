@@ -40,7 +40,7 @@ public class Pedido {
     private String qr;
     
     @Column(name = "cantidad_qr")
-    private String cantidadQr;
+    private double cantidadQr;
     
     @Column(name = "total")
     private double total;
@@ -78,7 +78,7 @@ public class Pedido {
 		return qr;
 	}
 	
-	public String getCantidadQr() {
+	public double getCantidadQr() {
 		return cantidadQr;
 	}
 	

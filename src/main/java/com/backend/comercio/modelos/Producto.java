@@ -49,12 +49,15 @@ public class Producto {
     private String subcategoria;
 	
 	@NotNull
-    @NotEmpty
+    @Column(name = "compra")
+    private double compra;
+	
+	@NotNull
     @Column(name = "precio")
-    private String precio;
+    private double precio;
 	
     @Column(name = "descuento")
-    private long descuento;
+    private double descuento;
 	
 	@NotNull
     @NotEmpty
@@ -101,11 +104,11 @@ public class Producto {
 		return subcategoria;
 	}
      
-    public String getPrecio() {
+    public double getPrecio() {
 		return precio;
 	}
     
-    public long getDescuento() {
+    public double getDescuento() {
 		return descuento;
 	}
     

@@ -3,6 +3,7 @@ package com.backend.comercio.servicios;
 import static com.backend.comercio.Constantes.LOGCLASS;
 import static com.backend.comercio.Constantes.LOGMETHOD;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -12,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.backend.comercio.exception.ModeloNoExistenteException;
+import com.backend.comercio.exception.SesionInvalidaException;
 import com.backend.comercio.modelos.Sesion;
 import com.backend.comercio.modelos.Usuario;
 import com.backend.comercio.repositorios.ISesionRepository;
@@ -77,5 +79,26 @@ public class SesionService {
     public void eliminar(long id) {
     	logger.info(LOGMETHOD+Thread.currentThread().getStackTrace()[1].getMethodName()+LOGCLASS+this.getClass().getSimpleName());
     	sesionRepository.deleteById(id);
+    }
+    
+    /**
+     * Valida la sesion del usuario por id
+     * @param id
+     * @return Sesion
+     */
+    public Optional<Sesion> validar(long id) {
+    	logger.info(LOGMETHOD+Thread.currentThread().getStackTrace()[1].getMethodName()+LOGCLASS+this.getClass().getSimpleName());
+        final Optional<Sesion> sesion= sesionRepository.findById(id);
+        if (sesion.isPresent()) {
+        	long startTime = sesion.get().getFechaApertura().getTime();
+			long endTime = new Date().getTime();
+			long diffTime = endTime - startTime;
+			long diffDays = diffTime / (1000 * 60 * 60 * 24);
+			if(diffDays<1) {
+				return sesion;
+			}
+			throw new SesionInvalidaException();
+        }
+        throw new ModeloNoExistenteException();
     }
 }

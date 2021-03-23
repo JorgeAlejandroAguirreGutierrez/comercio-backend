@@ -28,18 +28,10 @@ public class Constantes {
 	public static final String RUTAIMAGENESQR="src/main/imgqr";
 	public static final String RUTAIMAGENESFRONT="src/main/imgfront";
 	
-	public static String guardarArchivo(MultipartFile archivo, long consecutivo, String carpeta ) throws Exception 
-    {
-		try {
-			String ruta=consecutivo+archivo.getOriginalFilename();
-	        File archivo_convertir = new File(carpeta, ruta );
-	        FileOutputStream archivo_salida = new FileOutputStream( archivo_convertir );
-	        archivo_salida.write( archivo.getBytes() );
-	        archivo_salida.close();
-	        return ruta;
-		}catch(IOException e) {
-			throw new Exception();
-		}
-    }
+	public static String vacio="";
+    public static String error_codigo_modelo_existente="4001";
+    public static String error_codigo_modelo_no_existente="4002";
+    public static String error_codigo_suscripcion_invalida="4003";
+    public static String error_codigo_sesion_invalida="4004";
 
 }

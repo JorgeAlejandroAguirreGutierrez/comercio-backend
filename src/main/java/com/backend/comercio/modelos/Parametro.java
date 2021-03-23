@@ -20,13 +20,9 @@ public class Parametro {
     @Column(name = "titulo")
     private String titulo;
 	
-	@NotNull
-    @NotEmpty
     @Column(name = "valor")
     private String valor;
 	
-	@NotNull
-    @NotEmpty
     @Column(name = "tipo")
     private String tipo;
 	
