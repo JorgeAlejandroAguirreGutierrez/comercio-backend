@@ -75,6 +75,9 @@ public class PedidoService {
      */
     public Optional<Pedido> actualizar(Pedido pedido) {
     	logger.info(LOGMETHOD+Thread.currentThread().getStackTrace()[1].getMethodName()+LOGCLASS+this.getClass().getSimpleName());
+    	if(pedido.getCliente()!= null ) {
+    		pedido.setCliente(null);
+    	}
     	return Optional.of(pedidoRepository.save(pedido));
     }
     

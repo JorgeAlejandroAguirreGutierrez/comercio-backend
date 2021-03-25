@@ -61,7 +61,7 @@ public class Pedido {
     @JoinColumn(name = "cliente_id", nullable = true)
     private Cliente cliente;
 	
-	@OneToMany(cascade ={CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE}, fetch = FetchType.LAZY)
+	@OneToMany(cascade ={CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE}, orphanRemoval = true, fetch = FetchType.LAZY)
     @JoinColumn(name = "pedido_id")
     private List<LineaPedido> lineasPedido;
 	

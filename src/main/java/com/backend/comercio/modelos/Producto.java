@@ -128,6 +128,10 @@ public class Producto {
 		return colores;
 	}
     
+    public double getCompra() {
+		return compra;
+	}
+    
     public boolean isDisponible() {
 		return disponible;
 	}
