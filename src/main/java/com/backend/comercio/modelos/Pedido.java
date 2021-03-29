@@ -58,7 +58,7 @@ public class Pedido {
     private boolean pagado;
 	
 	@ManyToOne
-    @JoinColumn(name = "cliente_id", nullable = true)
+    @JoinColumn(name = "cliente_id")
     private Cliente cliente;
 	
 	@OneToMany(cascade ={CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE}, orphanRemoval = true, fetch = FetchType.LAZY)

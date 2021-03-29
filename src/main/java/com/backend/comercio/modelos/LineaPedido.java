@@ -21,12 +21,8 @@ public class LineaPedido {
     private double total;
     
     @ManyToOne
-    @JoinColumn(name = "talla_id", nullable = true)
-    private Talla talla;
-    
-    @ManyToOne
-    @JoinColumn(name = "color_id", nullable = true)
-    private Color color;
+    @JoinColumn(name = "presentacion_id", nullable = true)
+    private Presentacion presentacion;
     
     @ManyToOne
     @JoinColumn(name = "producto_id", nullable = true)
@@ -40,12 +36,8 @@ public class LineaPedido {
 		this.total = total;
 	}
 	
-	public Talla getTalla() {
-		return talla;
-	}
-	
-	public Color getColor() {
-		return color;
+	public Presentacion getPresentacion() {
+		return presentacion;
 	}
 	
 	public Producto getProducto() {

@@ -13,6 +13,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import java.util.List;
 
@@ -64,20 +65,14 @@ public class Producto {
     @Column(name = "garantia")
     private String garantia;
 	
-	@NotEmpty
 	@OneToMany(cascade ={CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE}, fetch = FetchType.LAZY)
     @JoinColumn(name = "producto_id")
-    private List<Talla> tallas;
+    private List<Presentacion> presentaciones;
 
 	
 	@OneToMany(cascade ={CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE}, fetch = FetchType.LAZY)
     @JoinColumn(name = "producto_id")
     private List<Imagen> imagenes;
-	
-	@NotEmpty
-	@OneToMany(cascade ={CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE}, fetch = FetchType.LAZY)
-    @JoinColumn(name = "producto_id")
-    private List<Color>colores;
 	
     @Column(name = "disponible")
     private boolean disponible;
@@ -116,16 +111,13 @@ public class Producto {
 		return garantia;
 	}
     
-    public List<Talla> getTallas() {
-		return tallas;
-	}
-    
     public List<Imagen> getImagenes() {
 		return imagenes;
 	}
     
-    public List<Color> getColores() {
-		return colores;
+    @JsonManagedReference
+    public List<Presentacion> getPresentaciones() {
+		return presentaciones;
 	}
     
     public double getCompra() {
