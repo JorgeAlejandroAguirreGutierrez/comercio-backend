@@ -24,18 +24,15 @@ public class Producto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 	
-	@NotNull
-    @NotEmpty
+    @Column(name = "titulo")
+    private String titulo;
+	
     @Column(name = "descripcion")
     private String descripcion;
 	
-	@NotNull
-    @NotEmpty
     @Column(name = "material")
     private String material;
-	
-	@NotNull
-    @NotEmpty
+    
     @Column(name = "marca")
     private String marca;
 	
@@ -60,8 +57,6 @@ public class Producto {
     @Column(name = "descuento")
     private double descuento;
 	
-	@NotNull
-    @NotEmpty
     @Column(name = "garantia")
     private String garantia;
 	

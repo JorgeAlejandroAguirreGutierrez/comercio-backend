@@ -27,7 +27,7 @@ public class UsuarioDatos implements ApplicationRunner {
         Optional<Usuario> ant=rep.findById((long) 1);
         if (!ant.isPresent()) {
             List<Usuario> usuarios = new ArrayList<>();
-            usuarios.add(new Usuario("YULAY ANDREA CASTAÑO HERNANDEZ", "1061047878", "admin123", new ArrayList<Sesion>()));
+            usuarios.add(new Usuario("JORGE ALEJANDRO AGUIRRE GUTIERREZ", "1053847607", "admin123", new ArrayList<Sesion>()));
             rep.saveAll(usuarios);
         }
     }
