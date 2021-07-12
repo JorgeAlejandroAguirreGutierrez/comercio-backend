@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
@@ -36,15 +37,15 @@ public class Producto {
     @Column(name = "marca")
     private String marca;
 	
+    @NotNull
+	@ManyToOne
+    @JoinColumn(name = "categoria_id")
+    private Categoria categoria;
+    
 	@NotNull
-    @NotEmpty
-    @Column(name = "categoria")
-    private String categoria;
-	
-	@NotNull
-    @NotEmpty
-    @Column(name = "subcategoria")
-    private String subcategoria;
+	@ManyToOne
+    @JoinColumn(name = "subcategoria_id")
+    private Subcategoria subcategoria;
 	
 	@NotNull
     @Column(name = "compra")
@@ -76,6 +77,10 @@ public class Producto {
 		return id;
 	}
     
+    public String getTitulo() {
+		return titulo;
+	}
+    
     public String getDescripcion() {
 		return descripcion;
 	}
@@ -86,11 +91,11 @@ public class Producto {
 		return marca;
 	}
     
-    public String getCategoria() {
+    public Categoria getCategoria() {
 		return categoria;
 	}
     
-    public String getSubcategoria() {
+    public Subcategoria getSubcategoria() {
 		return subcategoria;
 	}
      

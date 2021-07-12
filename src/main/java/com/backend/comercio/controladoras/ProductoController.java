@@ -97,17 +97,10 @@ public class ProductoController {
         return new ResponseEntity<>(producto, HttpStatus.OK);
     }
     
-    @GetMapping(value = "/consultarPorMarcaCategoria", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> consultarPorMarcaCategoria(@RequestParam("marca") String marca, @RequestParam("categoria") String categoria) {
+    @GetMapping(value = "/consultarPorCategoriaYSubcategoria", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> consultarPorMarcaCategoriaSubcategoria(@RequestParam("categoria") String categoria, @RequestParam("subcategoria") String subcategoria) {
     	logger.info(LOGMETHOD+Thread.currentThread().getStackTrace()[1].getMethodName()+LOGCLASS+this.getClass().getSimpleName());
-        List<Producto> producto=servicio.consultarPorMarcaCategoria(marca, categoria);
-        return new ResponseEntity<>(producto, HttpStatus.OK);
-    }
-    
-    @GetMapping(value = "/consultarPorMarcaCategoriaSubcategoria", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> consultarPorMarcaCategoriaSubcategoria(@RequestParam("marca") String marca, @RequestParam("categoria") String categoria, @RequestParam("subcategoria") String subcategoria) {
-    	logger.info(LOGMETHOD+Thread.currentThread().getStackTrace()[1].getMethodName()+LOGCLASS+this.getClass().getSimpleName());
-        List<Producto> producto=servicio.consultarPorMarcaCategoriaSubcategoria(marca, categoria, subcategoria);
+        List<Producto> producto=servicio.consultarPorCategoriaYSubcategoria(categoria, subcategoria);
         return new ResponseEntity<>(producto, HttpStatus.OK);
     }
     

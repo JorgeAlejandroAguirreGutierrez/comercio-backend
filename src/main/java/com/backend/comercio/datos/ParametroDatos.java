@@ -25,40 +25,7 @@ public class ParametroDatos implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
         Optional<Parametro> ant=rep.findById((long) 1);
         if (!ant.isPresent()) {
-            List<Parametro> parametros= new ArrayList<>();
-            //CATEGORIAS
-            parametros.add(new Parametro(null, "ZAPATOS", "CATEGORIA", true));
-            parametros.add(new Parametro(null, "BOLSOS", "CATEGORIA", true));
-            parametros.add(new Parametro(null, "TRAJES DEPORTIVOS", "CATEGORIA", true));
-            
-            //ESTILOS ZAPATOS
-            parametros.add(new Parametro("ZAPATOS", "TENIS", "SUBCATEGORIA", true));
-            parametros.add(new Parametro("ZAPATOS", "ZAPATILLAS", "SUBCATEGORIA", true));
-            parametros.add(new Parametro("ZAPATOS", "MOCASIN", "SUBCATEGORIA", true));
-            parametros.add(new Parametro("ZAPATOS", "TENIS TACON", "SUBCATEGORIA", true));
-            parametros.add(new Parametro("ZAPATOS", "TACON", "SUBCATEGORIA", true));
-            parametros.add(new Parametro("ZAPATOS", "SANDALIAS", "SUBCATEGORIA", true));
-            parametros.add(new Parametro("ZAPATOS", "CHANCLAS", "SUBCATEGORIA", true));
-            parametros.add(new Parametro("ZAPATOS", "BOTAS", "SUBCATEGORIA", true));
-            parametros.add(new Parametro("ZAPATOS", "BOTINES", "SUBCATEGORIA", true));
-            parametros.add(new Parametro("ZAPATOS", "BALETAS", "SUBCATEGORIA", true));
-            parametros.add(new Parametro("ZAPATOS", "TRACTOR", "SUBCATEGORIA", true));
-            
-            //ESTILOS BOLSOS
-            parametros.add(new Parametro("BOLSOS", "ELEGANTE", "SUBCATEGORIA", true));
-            parametros.add(new Parametro("BOLSOS", "CASUAL", "SUBCATEGORIA", true));
-            parametros.add(new Parametro("BOLSOS", "DEPORTIVO", "SUBCATEGORIA", true));
-            parametros.add(new Parametro("BOLSOS", "MANOS LIBRES", "SUBCATEGORIA", true));
-            parametros.add(new Parametro("BOLSOS", "MORRAL", "SUBCATEGORIA", true));
-            parametros.add(new Parametro("BOLSOS", "CARTERA", "SUBCATEGORIA", true));
-            parametros.add(new Parametro("BOLSOS", "MALETIN", "SUBCATEGORIA", true));
-            parametros.add(new Parametro("BOLSOS", "BILLETERA", "SUBCATEGORIA", true));
-            parametros.add(new Parametro("BOLSOS", "BANDOLERA", "SUBCATEGORIA", true));
-            parametros.add(new Parametro("BOLSOS", "CANGURO", "SUBCATEGORIA", true));
-            
-            //ESTILOS TRAJES DEPORTIVOS
-            parametros.add(new Parametro("TRAJES DEPORTIVOS", "DEPORTIVO", "SUBCATEGORIA", true));
-            
+            List<Parametro> parametros= new ArrayList<>();            
             //TALLAS ZAPATOS
             parametros.add(new Parametro("ZAPATOS", "21", "TALLA", true));
             parametros.add(new Parametro("ZAPATOS", "22", "TALLA", true));
