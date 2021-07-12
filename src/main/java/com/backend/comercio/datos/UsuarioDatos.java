@@ -28,6 +28,8 @@ public class UsuarioDatos implements ApplicationRunner {
         if (!ant.isPresent()) {
             List<Usuario> usuarios = new ArrayList<>();
             usuarios.add(new Usuario("JORGE ALEJANDRO AGUIRRE GUTIERREZ", "1053847607", "admin123", new ArrayList<Sesion>()));
+            usuarios.add(new Usuario("MARIO DELGADO", "0603467226", "admin123", new ArrayList<Sesion>()));
+            
             rep.saveAll(usuarios);
         }
     }
