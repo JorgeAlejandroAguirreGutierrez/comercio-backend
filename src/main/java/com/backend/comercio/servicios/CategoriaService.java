@@ -5,10 +5,7 @@ import static com.backend.comercio.Constantes.LOGMETHOD;
 
 
 import java.util.List;
-import java.util.ArrayList;
 import java.util.Optional;
-
-import javax.persistence.criteria.Predicate;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,9 +22,9 @@ public class CategoriaService {
     private ICategoriaRepository categoriaRepository;
 
     /**
-     * Consulta el producto por id
+     * Consulta la categoria por id
      * @param id
-     * @return Producto
+     * @return Categoria
      */
     public Optional<Categoria> obtener(long id) {
     	logger.info(LOGMETHOD+Thread.currentThread().getStackTrace()[1].getMethodName()+LOGCLASS+this.getClass().getSimpleName());
@@ -35,8 +32,8 @@ public class CategoriaService {
         return producto;
     }
     /**
-     * Consulta todos los productos
-     * @return List<Producto>
+     * Consulta todos las categorias
+     * @return List<Categoria>
      */
     public List<Categoria> consultar() {
     	logger.info(LOGMETHOD+Thread.currentThread().getStackTrace()[1].getMethodName()+LOGCLASS+this.getClass().getSimpleName());
@@ -44,18 +41,18 @@ public class CategoriaService {
         return productos;
     }
     /**
-     * Crea un nuevo producto
-     * @param Producto
-     * @return Producto 
+     * Crea una nueva categoria
+     * @param Categoria
+     * @return Categoria 
      */
     public Optional<Categoria> crear(Categoria categoria) {
     	logger.info(LOGMETHOD+Thread.currentThread().getStackTrace()[1].getMethodName()+LOGCLASS+this.getClass().getSimpleName());
     	return Optional.of(categoriaRepository.save(categoria));
     }
     /**
-     * Actualiza un producto
-     * @param Producto
-     * @return Producto
+     * Actualiza una categoria
+     * @param Categoria
+     * @return Categoria
      */
     public Optional<Categoria> actualizar(Categoria categoria) {
     	logger.info(LOGMETHOD+Thread.currentThread().getStackTrace()[1].getMethodName()+LOGCLASS+this.getClass().getSimpleName());
@@ -63,7 +60,7 @@ public class CategoriaService {
     }
     
     /**
-     * Elimina un producto
+     * Elimina una categoria
      * @param id
      */
     public void eliminar(long id) {
@@ -72,17 +69,12 @@ public class CategoriaService {
     }
     
     /**
-     * Consulta los productos por nombre
-     * @return List<Producto>
+     * buscar por categoria, subcategoria y subsubcategoria
+     * @return List<Categoria>
      */
-    public List<Categoria> buscar(Categoria categoria) {
+    public List<Categoria> buscar(String categoria, String subcategoria, String subsubcategoria) {
     	logger.info(LOGMETHOD+Thread.currentThread().getStackTrace()[1].getMethodName()+LOGCLASS+this.getClass().getSimpleName());
-    	return  categoriaRepository.findAll((root, criteriaQuery, criteriaBuilder) -> {
-		    List<Predicate> predicates = new ArrayList<>();
-		    if (categoria.getDescripcion()!=null) {
-		        predicates.add(criteriaBuilder.and(criteriaBuilder.like(root.get("descripcion"), "%"+categoria.getDescripcion()+"%")));
-		    }
-		    return criteriaBuilder.and(predicates.toArray(new Predicate[predicates.size()]));
-		});
+        final List<Categoria> categorias = categoriaRepository.buscar(categoria, subcategoria, subsubcategoria);
+        return categorias;
     }
 }

@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 
 import com.backend.comercio.modelos.Categoria;
 import com.backend.comercio.modelos.Subcategoria;
+import com.backend.comercio.modelos.Subsubcategoria;
 import com.backend.comercio.repositorios.ICategoriaRepository;
 
 @Component
@@ -27,9 +28,10 @@ public class CategoriaDatos implements ApplicationRunner {
         Optional<Categoria> ant=rep.findById((long) 1);
         if (!ant.isPresent()) {
             List<Categoria> categorias= new ArrayList<>();
-            //CATEGORIAS
+            List<Subsubcategoria> subsubcategorias=new ArrayList<>();
+            subsubcategorias.add(new Subsubcategoria("SUBTENIS"));
             List<Subcategoria> subcategorias=new ArrayList<>();
-            subcategorias.add(new Subcategoria("TENIS"));
+            subcategorias.add(new Subcategoria("TENIS", subsubcategorias));
             subcategorias.add(new Subcategoria("ZAPATILLAS"));
             subcategorias.add(new Subcategoria("MOCASIN"));
             categorias.add(new Categoria("ZAPATOS", subcategorias));

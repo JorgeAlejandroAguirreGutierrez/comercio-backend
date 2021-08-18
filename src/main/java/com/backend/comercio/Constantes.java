@@ -4,6 +4,8 @@ public class Constantes {
 	public static final String CLIENTECONTROLLER = "/comercio/cliente";
 	public static final String PRODUCTOCONTROLLER = "/comercio/producto";
 	public static final String CATEGORIACONTROLLER = "/comercio/categoria";
+	public static final String SUBCATEGORIACONTROLLER = "/comercio/subcategoria";
+	public static final String SUBSUBCATEGORIACONTROLLER = "/comercio/subsubcategoria";
 	public static final String PARAMETROCONTROLLER = "/comercio/parametro";
 	public static final String PEDIDOCONTROLLER = "/comercio/pedido";
 	public static final String USUARIOCONTROLLER = "/comercio/usuario";

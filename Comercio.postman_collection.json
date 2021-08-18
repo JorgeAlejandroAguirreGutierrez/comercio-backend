@@ -1,0 +1,404 @@
+{
+	"info": {
+		"_postman_id": "01557862-44cf-4bec-b8e8-f9cb9a832aa2",
+		"name": "Comercio",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Producto",
+			"item": [
+				{
+					"name": "ConsultarProducto",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/ciudadvictoria/producto",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"ciudadvictoria",
+								"producto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObtenerProducto",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/ciudadvictoria/producto/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"ciudadvictoria",
+								"producto",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CrearProducto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"TRACTOR\",\n    \"descripcion\": \"TENIS PARA TRAJE FORMAL\",\n    \"material\": \"TELA\",\n    \"marca\": \"VALENCIAGA\",\n    \"estilo\": \"TENIS\",\n    \"tipo\": \"ZAPATOS\",\n    \"precio\": \"120000\",\n    \"garantia\": \"3 meses\",\n    \"disponible\": true,\n    \"imagenes\": [],\n    \"colores\": [\n        {\n            \"descripcion\": \"NEGRO\"\n        },\n        {\n            \"descripcion\": \"AZUL\"\n        }\n    ],\n    \"tallas\": [\n        {\n            \"descripcion\": \"38\"\n        },\n        {\n            \"descripcion\": \"40\"\n        },\n        {\n            \"descripcion\": \"41\"\n        },\n        {\n            \"descripcion\": \"42\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/ciudadvictoria/producto",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"ciudadvictoria",
+								"producto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ConsultarPorCategoriaYSubcategoria",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/comercio/producto/consultarPorCategoriaYSubcategoria?categoria=ZAPATOS&subcategoria",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"comercio",
+								"producto",
+								"consultarPorCategoriaYSubcategoria"
+							],
+							"query": [
+								{
+									"key": "categoria",
+									"value": "ZAPATOS"
+								},
+								{
+									"key": "subcategoria",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuario",
+			"item": [
+				{
+					"name": "ConsultarUsuario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/ciudadvictoria/usuario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"ciudadvictoria",
+								"usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObtenerUsuario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/ciudadvictoria/usuario/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"ciudadvictoria",
+								"usuario",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CrearUsuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"ANDREA\",\n    \"contrasena\": \"ANDREA2021\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/ciudadvictoria/usuario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"ciudadvictoria",
+								"usuario"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sesion",
+			"item": [
+				{
+					"name": "Sesion",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 0,\n  \"estado\": true,\n  \"fechaApertura\": \"2021-01-29T15:28:52.429Z\",\n  \"fechaCierre\": null,\n  \"usuario\": {\n    \"id\": 0,\n    \"nombre\": \"\",\n    \"identificacion\": \"1053847608\",\n    \"contrasena\": \"admin123\"\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/ciudadvictoria/sesion",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"ciudadvictoria",
+								"sesion"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cliente",
+			"item": [
+				{
+					"name": "Cliente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/ciudadvictoria/cliente",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"ciudadvictoria",
+								"cliente"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pedido",
+			"item": [
+				{
+					"name": "Pedido",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/comercio/pedido",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"comercio",
+								"pedido"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PedidoId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/ciudadvictoria/pedido/19",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"ciudadvictoria",
+								"pedido",
+								"19"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PedidoObtenerPorCliente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/ciudadvictoria/pedido/obtenerporcliente/3113395602",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"ciudadvictoria",
+								"pedido",
+								"obtenerporcliente",
+								"3113395602"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PedidoObtenerPorCodigo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/ciudadvictoria/pedido/obtenerporcodigo/f55c852c-cdec-48fb-90d6-1bfdca34075b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"ciudadvictoria",
+								"pedido",
+								"obtenerporcodigo",
+								"f55c852c-cdec-48fb-90d6-1bfdca34075b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pedido",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/ciudadvictoria/pedido",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"ciudadvictoria",
+								"pedido"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categoria",
+			"item": [
+				{
+					"name": "Categoria",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/comercio/categoria",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"comercio",
+								"categoria"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

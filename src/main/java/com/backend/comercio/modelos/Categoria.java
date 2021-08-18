@@ -15,6 +15,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 
 @Entity
 @Table(name = "categoria")
@@ -28,6 +30,7 @@ public class Categoria {
     @Column(name = "descripcion")
     private String descripcion;
 	
+	@JsonManagedReference
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
 	@JoinColumn(name = "categoria_id")
 	private List<Subcategoria> subcategorias;

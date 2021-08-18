@@ -95,8 +95,20 @@ public class ParametroDatos implements ApplicationRunner {
             parametros.add(new Parametro("EFECTY", "AL NUMERO DE CEDULA: 1053847607", "MEDIO_PAGO", true));
             
             parametros.add(new Parametro(null, "slider1.jpg", "SLIDER", true));
-            parametros.add(new Parametro(null, "slider2.jpeg", "SLIDER", true));
+            parametros.add(new Parametro(null, "slider2.jpg", "SLIDER", true));
             parametros.add(new Parametro(null, "slider3.jpg", "SLIDER", true));
+            
+            parametros.add(new Parametro(null, "logo1.png", "LOGO", true));
+            
+            //CAMPOS
+            parametros.add(new Parametro("MARCA", "CAMPO MARCA", "CAMPO", true));
+            parametros.add(new Parametro("MATERIAL", "CAMPO MATERIAL", "CAMPO", true));
+            parametros.add(new Parametro("COMPRA", "CAMPO COMPRA", "CAMPO", true));
+            parametros.add(new Parametro("DESCUENTO", "CAMPO DESCUENTO", "CAMPO", true));
+            parametros.add(new Parametro("GARANTIA", "CAMPO GARANTIA", "CAMPO", true));
+            parametros.add(new Parametro("TALLA", "CAMPO TALLA", "CAMPO", true));
+            parametros.add(new Parametro("COLOR", "CAMPO COLOR", "CAMPO", true));
+            
             rep.saveAll(parametros);
         }
     }

@@ -25,9 +25,6 @@ import com.backend.comercio.servicios.ProductoService;
 import static com.backend.comercio.Constantes.LOGCLASS;
 import static com.backend.comercio.Constantes.LOGMETHOD;
 import static com.backend.comercio.Constantes.PRODUCTOCONTROLLER;
-
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.util.List;
 import java.util.Optional;
 
