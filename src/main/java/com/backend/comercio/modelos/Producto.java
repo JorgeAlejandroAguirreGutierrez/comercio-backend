@@ -11,7 +11,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -48,15 +47,19 @@ public class Producto {
     private Subcategoria subcategoria;
 	
 	@NotNull
-    @Column(name = "compra")
-    private double compra;
+	@ManyToOne
+    @JoinColumn(name = "subsubcategoria_id")
+    private Subsubcategoria subsubcategoria;
+	
+	@Column(name = "compra")
+    private Double compra;
 	
 	@NotNull
     @Column(name = "precio")
-    private double precio;
+    private Double precio;
 	
     @Column(name = "descuento")
-    private double descuento;
+    private Double descuento;
 	
     @Column(name = "garantia")
     private String garantia;
@@ -98,13 +101,21 @@ public class Producto {
     public Subcategoria getSubcategoria() {
 		return subcategoria;
 	}
+    
+    public Subsubcategoria getSubsubcategoria() {
+		return subsubcategoria;
+	}
      
-    public double getPrecio() {
+    public Double getPrecio() {
 		return precio;
 	}
     
-    public double getDescuento() {
+    public Double getDescuento() {
 		return descuento;
+	}
+    
+    public Double getCompra() {
+		return compra;
 	}
     
     public String getGarantia() {
@@ -118,10 +129,6 @@ public class Producto {
     @JsonManagedReference
     public List<Presentacion> getPresentaciones() {
 		return presentaciones;
-	}
-    
-    public double getCompra() {
-		return compra;
 	}
     
     public boolean isDisponible() {

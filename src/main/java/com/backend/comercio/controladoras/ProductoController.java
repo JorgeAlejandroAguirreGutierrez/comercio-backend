@@ -56,7 +56,7 @@ public class ProductoController {
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> crear(@RequestBody @Valid Producto _producto) {
     	logger.info(LOGMETHOD+Thread.currentThread().getStackTrace()[1].getMethodName()+LOGCLASS+this.getClass().getSimpleName());
-        Optional<Producto> producto=servicio.crear(_producto);
+    	Optional<Producto> producto=servicio.crear(_producto);
         return new ResponseEntity<>(producto, HttpStatus.OK);
     }
 
