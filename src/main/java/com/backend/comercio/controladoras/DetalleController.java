@@ -14,54 +14,53 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import com.backend.comercio.modelos.Detalle;
+import com.backend.comercio.servicios.DetalleService;
 
-import com.backend.comercio.modelos.Categoria;
-import com.backend.comercio.servicios.CategoriaService;
 import static com.backend.comercio.Constantes.LOGCLASS;
 import static com.backend.comercio.Constantes.LOGMETHOD;
-import static com.backend.comercio.Constantes.CATEGORIACONTROLLER;
+import static com.backend.comercio.Constantes.DETALLECONTROLLER;
 import java.util.List;
 import java.util.Optional;
 
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping(CATEGORIACONTROLLER)
+@RequestMapping(DETALLECONTROLLER)
 @Validated
-public class CategoriaController {
-	private static final Logger logger = LoggerFactory.getLogger(CategoriaController.class);
+public class DetalleController {
+	private static final Logger logger = LoggerFactory.getLogger(DetalleController.class);
 	
     @Autowired
-    private CategoriaService servicio;
+    private DetalleService servicio;
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> consultar() {
     	logger.info(LOGMETHOD+Thread.currentThread().getStackTrace()[1].getMethodName()+LOGCLASS+this.getClass().getSimpleName());
-        List<Categoria> categorias=servicio.consultar();
-        return new ResponseEntity<>(categorias, HttpStatus.OK);
+        List<Detalle> detalles=servicio.consultar();
+        return new ResponseEntity<>(detalles, HttpStatus.OK);
     }
 
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> obtener(@PathVariable("id") long id) {
     	logger.info(LOGMETHOD+Thread.currentThread().getStackTrace()[1].getMethodName()+LOGCLASS+this.getClass().getSimpleName());
-        Optional<Categoria> categoria=servicio.obtener(id);
-        return new ResponseEntity<>(categoria, HttpStatus.OK);
+        Optional<Detalle> detalle=servicio.obtener(id);
+        return new ResponseEntity<>(detalle, HttpStatus.OK);
     }
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> crear(@RequestBody @Valid Categoria _categoria) {
+    public ResponseEntity<?> crear(@RequestBody @Valid Detalle _detalle) {
     	logger.info(LOGMETHOD+Thread.currentThread().getStackTrace()[1].getMethodName()+LOGCLASS+this.getClass().getSimpleName());
-        Optional<Categoria> categoria=servicio.crear(_categoria);
-        return new ResponseEntity<>(categoria, HttpStatus.OK);
+        Optional<Detalle> detalle=servicio.crear(_detalle);
+        return new ResponseEntity<>(detalle, HttpStatus.OK);
     }
 
     @PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> actualizar(@RequestBody @Valid Categoria _categoria) {
+    public ResponseEntity<?> actualizar(@RequestBody @Valid Detalle _detalle) {
     	logger.info(LOGMETHOD+Thread.currentThread().getStackTrace()[1].getMethodName()+LOGCLASS+this.getClass().getSimpleName());
-        Optional<Categoria> categoria=servicio.actualizar(_categoria);
-        return new ResponseEntity<>(categoria, HttpStatus.OK);
+        Optional<Detalle> detalle=servicio.actualizar(_detalle);
+        return new ResponseEntity<>(detalle, HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -71,17 +70,4 @@ public class CategoriaController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
     
-    @GetMapping(value="/buscar",produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> buscar(@RequestParam String categoria, @RequestParam String subcategoria, @RequestParam String subsubcategoria) {
-    	logger.info(LOGMETHOD+Thread.currentThread().getStackTrace()[1].getMethodName()+LOGCLASS+this.getClass().getSimpleName());
-        List<Categoria> categorias=servicio.buscar(categoria, subcategoria, subsubcategoria);
-        return new ResponseEntity<>(categorias, HttpStatus.OK);
-    }
-    
-    @DeleteMapping(value = "/eliminarPorCategoriaSubcategoriaSubsubcategoria", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> eliminarPorCategoriaSubcategoriaSubsubcategoria(@RequestParam("categoria") String categoria, @RequestParam("subcategoria") String subcategoria, @RequestParam("subsubcategoria") String subsubcategoria)  {
-    	logger.info(LOGMETHOD+Thread.currentThread().getStackTrace()[1].getMethodName()+LOGCLASS+this.getClass().getSimpleName());
-        servicio.eliminarPorCategoriaSubcategoriaSubsubcategoria(categoria, subcategoria, subsubcategoria);
-        return new ResponseEntity<>(HttpStatus.OK);
-    }
 }

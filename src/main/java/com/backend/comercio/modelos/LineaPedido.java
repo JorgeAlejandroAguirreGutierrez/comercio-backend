@@ -21,10 +21,6 @@ public class LineaPedido {
     private double total;
     
     @ManyToOne
-    @JoinColumn(name = "presentacion_id", nullable = true)
-    private Presentacion presentacion;
-    
-    @ManyToOne
     @JoinColumn(name = "producto_id", nullable = true)
     private Producto producto;
 	
@@ -34,10 +30,6 @@ public class LineaPedido {
     
     public void setTotal(double total) {
 		this.total = total;
-	}
-	
-	public Presentacion getPresentacion() {
-		return presentacion;
 	}
 	
 	public Producto getProducto() {

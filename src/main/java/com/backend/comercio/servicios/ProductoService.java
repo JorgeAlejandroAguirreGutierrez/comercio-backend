@@ -6,6 +6,8 @@ import static com.backend.comercio.Constantes.LOGMETHOD;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Optional;
 
 import javax.persistence.criteria.CriteriaBuilder;
@@ -154,6 +156,19 @@ public class ProductoService {
                 return criteriaBuilder.and(predicates.toArray(new Predicate[predicates.size()]));
             }
         });
+    }
+    
+    /**
+     * Consulta los productos por ultima fecha
+     * @return List<Producto>
+     */
+    public List<Producto> consultarPorUltimaFecha() {
+    	logger.info(LOGMETHOD+Thread.currentThread().getStackTrace()[1].getMethodName()+LOGCLASS+this.getClass().getSimpleName());
+    	Date actually = new Date();
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DATE, -30);
+        Date before = calendar.getTime();
+    	return productoRepository.consultarPorUltimaFecha(actually, before);
     }
     
     /**

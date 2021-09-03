@@ -29,7 +29,7 @@ public class Subcategoria {
 	
 	@NotNull
     @NotEmpty
-    @Column(name = "descripcion")
+    @Column(name = "descripcion", unique = true)
     private String descripcion;
 	
 	@JsonManagedReference

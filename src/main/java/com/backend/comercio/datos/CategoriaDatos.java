@@ -39,7 +39,6 @@ public class CategoriaDatos implements ApplicationRunner {
             subcategorias=new ArrayList<>();
             subcategorias.add(new Subcategoria("ELEGANTE"));
             subcategorias.add(new Subcategoria("CASUAL"));
-            subcategorias.add(new Subcategoria("DEPORTIVO"));
             categorias.add(new Categoria("BOLSOS", subcategorias));
             
             subcategorias=new ArrayList<>();

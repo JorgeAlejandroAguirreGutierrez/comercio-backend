@@ -13,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.backend.comercio.modelos.Categoria;
 import com.backend.comercio.repositorios.ICategoriaRepository;
+import com.backend.comercio.repositorios.ISubcategoriaRepository;
+import com.backend.comercio.repositorios.ISubsubcategoriaRepository;
 
 @Service
 public class CategoriaService {
@@ -20,6 +22,12 @@ public class CategoriaService {
 
     @Autowired
     private ICategoriaRepository categoriaRepository;
+    
+    @Autowired
+    private ISubcategoriaRepository subcategoriaRepository;
+    
+    @Autowired
+    private ISubsubcategoriaRepository subsubcategoriaRepository;
 
     /**
      * Consulta la categoria por id
@@ -69,12 +77,27 @@ public class CategoriaService {
     }
     
     /**
-     * buscar por categoria, subcategoria y subsubcategoria
+     * Buscar por categoria, subcategoria y subsubcategoria
      * @return List<Categoria>
      */
     public List<Categoria> buscar(String categoria, String subcategoria, String subsubcategoria) {
     	logger.info(LOGMETHOD+Thread.currentThread().getStackTrace()[1].getMethodName()+LOGCLASS+this.getClass().getSimpleName());
         final List<Categoria> categorias = categoriaRepository.buscar(categoria, subcategoria, subsubcategoria);
         return categorias;
+    }
+    
+    /**
+     * Eliminar por categoria, subcategoria y subsubcategoria
+     * @return
+     */
+    public void eliminarPorCategoriaSubcategoriaSubsubcategoria(String categoria, String subcategoria, String subsubcategoria) {
+    	logger.info(LOGMETHOD+Thread.currentThread().getStackTrace()[1].getMethodName()+LOGCLASS+this.getClass().getSimpleName());
+		if(!subsubcategoria.isEmpty()) {
+			subsubcategoriaRepository.eliminar(subsubcategoria);
+		} else if(!subcategoria.isEmpty()) {
+			subcategoriaRepository.eliminar(subcategoria);
+		} else {
+			categoriaRepository.eliminar(categoria);
+		}
     }
 }

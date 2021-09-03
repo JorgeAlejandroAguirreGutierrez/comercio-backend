@@ -106,8 +106,14 @@ public class ParametroDatos implements ApplicationRunner {
             parametros.add(new Parametro("COMPRA", "CAMPO COMPRA", "CAMPO", true));
             parametros.add(new Parametro("DESCUENTO", "CAMPO DESCUENTO", "CAMPO", true));
             parametros.add(new Parametro("GARANTIA", "CAMPO GARANTIA", "CAMPO", true));
+            parametros.add(new Parametro("TAMANO", "CAMPO TAMAÑO", "CAMPO", true));
+            parametros.add(new Parametro("CARACTERISTICA", "CAMPO CARACTERISTICA", "CAMPO", true));
             parametros.add(new Parametro("TALLA", "CAMPO TALLA", "CAMPO", true));
             parametros.add(new Parametro("COLOR", "CAMPO COLOR", "CAMPO", true));
+            parametros.add(new Parametro("MEMORIA", "CAMPO MEMORIA", "CAMPO", true));
+            parametros.add(new Parametro("PROCESADOR", "CAMPO PROCESADOR", "CAMPO", true));
+            parametros.add(new Parametro("CAMARA", "CAMPO CAMARA", "CAMPO", true));
+            
             
             rep.saveAll(parametros);
         }

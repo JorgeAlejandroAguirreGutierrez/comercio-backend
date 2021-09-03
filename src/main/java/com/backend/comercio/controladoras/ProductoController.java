@@ -101,6 +101,13 @@ public class ProductoController {
         return new ResponseEntity<>(producto, HttpStatus.OK);
     }
     
+    @GetMapping(value = "/consultarPorUltimaFecha", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> consultarPorUltimaFecha() {
+    	logger.info(LOGMETHOD+Thread.currentThread().getStackTrace()[1].getMethodName()+LOGCLASS+this.getClass().getSimpleName());
+        List<Producto> producto=servicio.consultarPorUltimaFecha();
+        return new ResponseEntity<>(producto, HttpStatus.OK);
+    }
+    
     @PutMapping(value = "/disponible", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> obtener(@RequestBody Producto producto) {
     	logger.info(LOGMETHOD+Thread.currentThread().getStackTrace()[1].getMethodName()+LOGCLASS+this.getClass().getSimpleName());

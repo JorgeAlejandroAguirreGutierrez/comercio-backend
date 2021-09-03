@@ -27,7 +27,7 @@ public class Categoria {
 	
 	@NotNull
     @NotEmpty
-    @Column(name = "descripcion")
+    @Column(name = "descripcion", unique = true)
     private String descripcion;
 	
 	@JsonManagedReference

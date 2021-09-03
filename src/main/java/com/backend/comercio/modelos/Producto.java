@@ -13,8 +13,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 @Entity
@@ -29,12 +34,10 @@ public class Producto {
 	
     @Column(name = "descripcion")
     private String descripcion;
-	
-    @Column(name = "material")
-    private String material;
     
-    @Column(name = "marca")
-    private String marca;
+    @NotNull
+    @Column(name = "precio")
+    private Double precio;
 	
     @NotNull
 	@ManyToOne
@@ -51,30 +54,64 @@ public class Producto {
     @JoinColumn(name = "subsubcategoria_id")
     private Subsubcategoria subsubcategoria;
 	
+	@Column(name = "material")
+    private String material;
+    
+    @Column(name = "marca")
+    private String marca;
+	
 	@Column(name = "compra")
     private Double compra;
-	
-	@NotNull
-    @Column(name = "precio")
-    private Double precio;
 	
     @Column(name = "descuento")
     private Double descuento;
 	
     @Column(name = "garantia")
     private String garantia;
-	
-	@OneToMany(cascade ={CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE}, fetch = FetchType.LAZY)
-    @JoinColumn(name = "producto_id")
-    private List<Presentacion> presentaciones;
+    
+    @Column(name = "tamano")
+    private String tamano;
+    
+    @Column(name = "caracteristica")
+    private String caracteristica;
+    
+    @Column(name = "talla")
+    private String talla;
+    
+    @Column(name = "color")
+    private String color;
+    
+    @Column(name = "memoria")
+    private String memoria;
+    
+    @Column(name = "procesador")
+    private String procesador;
+    
+    @Column(name = "camara")
+    private String camara;
 
-	
-	@OneToMany(cascade ={CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE}, fetch = FetchType.LAZY)
+    @JsonManagedReference
+    @OneToMany(cascade ={CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE}, fetch = FetchType.LAZY, orphanRemoval = true)
+    @JoinColumn(name = "producto_id")
+    private List<Detalle> detalles;
+    
+    @JsonManagedReference
+	@OneToMany(cascade ={CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE}, fetch = FetchType.LAZY, orphanRemoval = true)
     @JoinColumn(name = "producto_id")
     private List<Imagen> imagenes;
 	
     @Column(name = "disponible")
     private boolean disponible;
+    
+    @CreationTimestamp
+    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+    @Column(name = "fecha_creacion", nullable = true)
+    private Timestamp fechaCreacion;
+    
+    @UpdateTimestamp
+    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+    @Column(name = "fecha_actualizacion", nullable = true)
+    private Timestamp fechaActualizacion;
     
     public long getId() {
 		return id;
@@ -122,13 +159,35 @@ public class Producto {
 		return garantia;
 	}
     
-    public List<Imagen> getImagenes() {
-		return imagenes;
+    public String getTamano() {
+		return tamano;
 	}
     
-    @JsonManagedReference
-    public List<Presentacion> getPresentaciones() {
-		return presentaciones;
+    public String getCaracteristica() {
+		return caracteristica;
+	}
+    
+    public String getTalla() {
+		return talla;
+	}
+    
+    public String getColor() {
+		return color;
+	}
+    
+    public String getProcesador() {
+		return procesador;
+	}
+    
+    public String getMemoria() {
+		return memoria;
+	}
+    public String getCamara() {
+		return camara;
+	}
+    
+    public List<Imagen> getImagenes() {
+		return imagenes;
 	}
     
     public boolean isDisponible() {
@@ -137,5 +196,13 @@ public class Producto {
     
     public void setDisponible(boolean disponible) {
 		this.disponible = disponible;
+	}
+    
+    public Timestamp getFechaCreacion() {
+		return fechaCreacion;
+	}
+    
+    public Timestamp getFechaActualizacion() {
+		return fechaActualizacion;
 	}
 }
