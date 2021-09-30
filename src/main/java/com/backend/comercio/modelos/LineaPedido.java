@@ -17,22 +17,32 @@ public class LineaPedido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 	
+	@Column(name = "cantidad")
+    private Long cantidad;
+	
 	@Column(name = "total")
-    private double total;
+    private Double total;
     
     @ManyToOne
     @JoinColumn(name = "producto_id", nullable = true)
     private Producto producto;
 	
-    public double getTotal() {
-		return total;
-	}
-    
-    public void setTotal(double total) {
-		this.total = total;
-	}
-	
 	public Producto getProducto() {
 		return producto;
+	}
+	
+	public Long getCantidad() {
+		return cantidad;
+	}
+	public void setCantidad(Long cantidad) {
+		this.cantidad = cantidad;
+	}
+	
+	public Double getTotal() {
+		return total;
+	}
+	
+	public void setTotal(Double total) {
+		this.total = total;
 	}
 }
