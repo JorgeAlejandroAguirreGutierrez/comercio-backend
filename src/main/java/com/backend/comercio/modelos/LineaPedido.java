@@ -28,6 +28,7 @@ public class LineaPedido {
     private Producto producto;
 	
 	public Producto getProducto() {
+		
 		return producto;
 	}
 	
